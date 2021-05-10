@@ -1,0 +1,6 @@
+{
+	"text.autoconfig.potionsickness.category.default": "Main",
+	"text.autoconfig.potionsickness.option.potionCooldown": "Potion Cooldown",
+	"text.autoconfig.potionsickness.option.potionCooldown.@Tooltip": "The time (in ticks) between potion drinks.",
+	"text.autoconfig.potionsickness.title": "Potion Sickness Configuration"
+}

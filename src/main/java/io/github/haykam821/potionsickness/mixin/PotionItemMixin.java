@@ -32,6 +32,6 @@ public class PotionItemMixin {
 		if (!(user instanceof PlayerEntity)) return;
 
 		PotionCooldownComponent component = PotionSicknessComponentInitializer.POTION_COOLDOWN.get(user);
-		component.setCooldown(stack, 100);
+		component.updateCooldown(stack);
 	}
 }

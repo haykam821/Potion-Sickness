@@ -4,8 +4,10 @@ import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.CommonTickingComponent;
 import dev.onyxstudios.cca.api.v3.entity.PlayerComponent;
+import io.github.haykam821.potionsickness.config.PotionSicknessConfig;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
@@ -31,6 +33,16 @@ public class PotionCooldownComponent implements PlayerComponent<Component>, Auto
 
 	public boolean isCoolingDown(Potion potion) {
 		return this.cooldowns.getInt(potion) > 0;
+	}
+
+	public int updateCooldown(ItemStack stack) {
+		Potion potion = PotionUtil.getPotion(stack);
+		return potion == null ? -1 : this.updateCooldown(potion);
+	}
+
+	public int updateCooldown(Potion potion) {
+		PotionSicknessConfig config = AutoConfig.getConfigHolder(PotionSicknessConfig.class).get();
+		return this.setCooldown(potion, config.potionCooldown); 
 	}
 
 	public int setCooldown(ItemStack stack, int cooldown) {
