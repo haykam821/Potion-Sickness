@@ -1,0 +1,33 @@
+{
+	"schemaVersion": 1,
+	"id": "potionsickness",
+	"version": "${version}",
+	"name": "Potion Sickness",
+	"description": "Prevents players from drinking the same potion for a certain period of time.",
+	"authors": [
+		"haykam821"
+	],
+	"contact": {
+		"homepage": "https://github.com/haykam821/Potion-Sickness#readme",
+		"issues": "https://github.com/haykam821/Potion-Sickness/issues"
+	},
+	"entrypoints": {
+		"cardinal-components-entity": [
+			"io.github.haykam821.potionsickness.component.PotionSicknessComponentInitializer"
+		]
+	},
+	"mixins": [
+		"potionsickness.mixin.json"
+	],
+	"custom": {
+		"cardinal-components": [
+			"potionsickness:potion_cooldown"
+		]
+	},
+	"license": "MIT",
+	"icon": "assets/potionsickness/icon.png",
+	"depends": {
+		"fabricloader": ">=0.4.0",
+		"cardinal-components-entity": ">=2.7.0"
+	}
+}
